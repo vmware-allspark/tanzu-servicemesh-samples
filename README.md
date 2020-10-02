@@ -7,10 +7,9 @@ be installed on your onboarded TSM cluster.
 
 - [Acme Fitness from VMware Cloud Advocacy Team](https://github.com/vmwarecloudadvocacy/acme_fitness_demo)
 - [Bookinfo from Istio](https://istio.io/latest/docs/examples/bookinfo/)
-- [Online Boutique from Google Cloud Platform](https://github.com/GoogleCloudPlatform/microservices-demo)
 
-We have modified the example applications to be able to run on Tanzu Service Mesh.
-It is a way to learn about TSM and test out its features such as
+We have selected parts of and pre-packaged the example applications to run on TSM
+Service Mesh. It is a way to learn about TSM and test out its features such as
 
 - Autoscaling using TSM Service Autoscaler
 - Configuring TSM Service Autoscaler through Argo GitOps
