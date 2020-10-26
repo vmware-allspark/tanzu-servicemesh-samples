@@ -12,7 +12,7 @@ if [ "$CRD_KIND" != "Definition" ]; then
     fi
 fi
 
-# Check that Bookinfo has been installed.
+# Check that ACME Fitness has been installed.
 NAMESPACE_STATUS_PHASE=`kubectl -o json get namespace acme | jq  .status.phase -r`
 if [ "$NAMESPACE_STATUS_PHASE" != "Active" ]; then
     printf "\nUnable to find Acme Fitness namspace. Please install Acme Fitness to enable TSM Autoscaler.\n"
