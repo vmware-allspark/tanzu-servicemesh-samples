@@ -21,7 +21,7 @@ Before the sample applications can be installed an run, the following must first
 be completed:
 
 - Have access to Tanzu Service Mesh
-- Onboard a Kubernetes cluster onto TSM
+- Onboard a Kubernetes cluster (v1.16 or newer) onto TSM
 
 Instructions for onboarding a cluster onto TSM is [here](https://docs.vmware.com/en/VMware-Tanzu-Service-Mesh/services/getting-started-guide/GUID-DE9746FD-8369-4B1E-922C-67CF4FB22D21.html)
 
@@ -57,7 +57,7 @@ I was then able to use `kubectl` to control the remote k8s cluster.
 ### The sample applications and how to run them
 
 The sample applications available in this repo are from VMware, Istio, and Google.
-They have been modified from their original versions to better fit our needs here.
+They have been slightly modified from their original versions to better fit our needs here.  Example changes include adding deployment resource requests, adding additional labels and pre configured traffic generators.
 
 || Sample Application || Source Organization || Source Site ||
 | ACME Fitness Shop | VMware Cloud Advocacy | [Repository](https://github.com/vmwarecloudadvocacy/acme_fitness_demo) |
