@@ -3,4 +3,4 @@
 
 ./acme-fitness_install.sh
 ./bookinfo_install.sh
-./apps_urls.sh
+./apps_URLs.sh

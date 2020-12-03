@@ -2,34 +2,26 @@
 
 See <https://istio.io/docs/examples/bookinfo/>
 
-## Build docker images without pushing
+## Installation
+Installing the bookinfo application requries applying both Kubernetes and Istio manfiests into a namespace that has `istio-injection` enabled:
 
 ```bash
-src/build-services.sh <version> <prefix>
+kubectl create namespace bookinfo
+kubectl label namespace bookinfo istio-injection=enabled --overwrite=true
+
+kubectl apply -n bookinfo -f platform/kube/bookinfo-SRE-optimized.yaml
+kubectl apply -n bookinfo -f networking/bookinfo-gateway.yaml
 ```
 
-Where `<version>` is the tag and `<prefix>` is the docker registry to tag the images.
+## Traffic generation
+Two traffic generators have been provided:
+- A low rate (1 rps) traffic generator to show service graph within Tanzu Service Mesh
+  ```bash
+  kubectl apply -f traffic-generator/product-page-probe.yaml
+  ```
+- A cyclical traffic generator which can exercise the Tanzu Service Mesh SLO and Autoscaling functionality:
+  ```bash
+  kubectl apply -f traffic-generator/bookinfo-locust-cyclical.yaml
+  ```
 
-For example: `src/build-services.sh 1.1.0 docker.io/istio`.
 
-The bookinfo versions are different from Istio versions since the sample should work with any version of Istio.
-
-## Update docker images in the yaml files
-
-```bash
-sed -i "s/\(istio\/examples-bookinfo-.*\):[[:digit:]]\.[[:digit:]]\.[[:digit:]]/<your docker image with tag>/g" */bookinfo*.yaml
-```
-
-## Push docker images to docker hub
-
-One script to build the docker images, push them to docker hub and to update the yaml files
-
-```bash
-build_push_update_images.sh <version>
-```
-
-## Tests
-
-Bookinfo is tested by istio.io integration tests. You can find them under [tests/examples](https://github.com/istio/istio.io/tree/master/tests/examples) in the [istio/istio.io](https://github.com/istio/istio.io) repository.
-
-The reference productpage HTML files are in [tests/apps/bookinfo/output](https://github.com/istio/istio/tree/master/tests/apps/bookinfo/output). If the productpage HTML produced by the app is changed, remember to regenerate the reference HTML files and commit them with the same PR.

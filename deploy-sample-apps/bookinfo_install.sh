@@ -30,4 +30,4 @@ if [ "$LOADGEN_NAMESPACE_STATUS_PHASE" != "Active" ]; then
     kubectl create namespace loadgen
 fi
 
-kubectl apply -n loadgen -f bookinfo/loadgen/product-page-probe.yaml
+kubectl apply -n loadgen -f bookinfo/traffic-generator/product-page-probe.yaml
