@@ -8,9 +8,9 @@ IP=$( echo $INGRESSES | jq '.[0].ip' -r)
 
 if [ $HOST != "null" ]; then
     INGRESS=$HOST
-    elif [ $IP != "null" ]; then
+elif [ $IP != "null" ]; then
     INGRESS=$IP
-    else
+else
     printf "\nUnable to determine ingress address. Exiting.\n"
     exit 1
 fi

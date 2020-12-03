@@ -66,8 +66,8 @@ spec:
           name: cyclical-traffic
       containers:
       - name: kubectl
-        image: bitnami/kubectl:1.16
-        imagePullPolicy: Always
+        image: bitnami/kubectl:1.17
+        imagePullPolicy: IfNotPresent
         command:
           - /bin/bash
         args:
