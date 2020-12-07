@@ -3,12 +3,12 @@
 ## Learn about TSM through Examples
 
 This repository contains sample applications from various organizations that can
-be installed on your onboarded TSM cluster.
+be installed on your onboarded Tanzu Service Mesh managed cluster.
 
 - [Acme Fitness from VMware Cloud Advocacy Team](https://github.com/vmwarecloudadvocacy/acme_fitness_demo)
 - [Bookinfo from Istio](https://istio.io/latest/docs/examples/bookinfo/)
 
-We have selected parts of and pre-packaged the example applications to run on TSM
+We have selected parts of and pre-packaged the example applications to run on Tanzu
 Service Mesh. It is a way to learn about TSM and test out its features such as
 
 - Autoscaling using TSM Service Autoscaler
@@ -20,7 +20,7 @@ Service Mesh. It is a way to learn about TSM and test out its features such as
 Before the sample applications can be installed an run, the following must first
 be completed:
 
-- Have access to Tanzu Service Mesh
+- Have access to Tanzu Service Mesh (TSM)
 - Onboard a Kubernetes cluster (v1.16 or newer) onto TSM
 
 Instructions for onboarding a cluster onto TSM is [here](https://docs.vmware.com/en/VMware-Tanzu-Service-Mesh/services/getting-started-guide/GUID-DE9746FD-8369-4B1E-922C-67CF4FB22D21.html)
@@ -34,34 +34,23 @@ and run the applications.
 
 ### Get access to the Kubernetes cluster onboarded onto TSM
 
-Make sure you can apply the manifest files using your `kubectl` client. If you cloned
-this repo onto a machine that is running your k8s cluster, then you're set.
+Make sure you have the proper `KUBECONFIG` that can apply the manifest files using your `kubectl` client.
 
-However, if a copy of this repo and your k8s cluster are on different machines,
-you can copy over a kubeconfig file from the machine running the onboarded k8
-cluster. From the [kubernetes.io](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/) website:
+From the [kubernetes.io](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/) website:
 
 > By default, kubectl looks for a file named config in the $HOME/.kube directory.
 You can specify other kubeconfig files by setting the KUBECONFIG environment variable
 or by setting the --kubeconfig flag.
 
-For this repo, I saved a kubeconfig file called `guestcluster.kubeconfig` in the
-`/home/tsmUser/data/` directory. It has all the config information needed to access
-my k8s cluster. I then set up the environment variable KUBECONFIG to be the path
-to a kubeconfig file. I did this using this command:
-
-`export KUBECONFIG="/home/tsmUser/data/guestcluster.kubeconfig"`
-
-I was then able to use `kubectl` to control the remote k8s cluster.
-
 ### The sample applications and how to run them
 
-The sample applications available in this repo are from VMware, Istio, and Google.
+The sample applications available in this repo are from VMware, and Istio.
 They have been slightly modified from their original versions to better fit our needs here.  Example changes include adding deployment resource requests, adding additional labels and pre configured traffic generators.
 
-|| Sample Application || Source Organization || Source Site ||
-| ACME Fitness Shop | VMware Cloud Advocacy | [Repository](https://github.com/vmwarecloudadvocacy/acme_fitness_demo) |
-| Bookinfo | Istio | [Repository](https://github.com/istio/istio/tree/master/samples/bookinfo), [Documentation](https://istio.io/latest/docs/examples/bookinfo/) |
+Sample Application | Source Organization | Source Site
+-------------------| ------------------- | -----------
+ACME Fitness Shop | VMware Cloud Advocacy | [Repository](https://github.com/vmwarecloudadvocacy/acme_fitness_demo)
+Bookinfo | Istio | [Repository](https://github.com/istio/istio/tree/master/samples/bookinfo), [Documentation](https://istio.io/latest/docs/examples/bookinfo/)
 
 The scripts use the [jq](https://stedolan.github.io/jq/) tool to run, available
 on Linux, MacOS, and Windows.
