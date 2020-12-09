@@ -3,7 +3,7 @@ FROM bitnami/kubectl:1.17
 USER root
 
 RUN echo "Installing Libraries" \
-  && install_packages coreutils git findutils jq ncurses-bin
+  && install_packages coreutils git findutils jq ncurses-bin vim
 
 WORKDIR /usr/local/bin/
 

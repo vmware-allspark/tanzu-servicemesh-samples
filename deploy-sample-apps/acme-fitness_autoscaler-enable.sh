@@ -23,12 +23,12 @@ fi
 # Enable TSM Autoscaler for ACME Fitness.
 kubectl apply -f acme-fitness/tsm-autoscaler/asd_efficiency_on.yaml
 if [ $? -gt 0 ]; then
-    printf "\nUnable to install Definition CRD.\n" 
+    printf "\nUnable to apply Autoscaling Definitions.\n" 
     exit 1
 fi
 
 echo ""
-echo "#############################################################"
+echo "###############################################"
 echo "# TSM Autoscaling is enabled for ACME Fitness #"
-echo "#############################################################"
+echo "###############################################"
 echo ""
