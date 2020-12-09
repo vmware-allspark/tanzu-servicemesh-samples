@@ -6,3 +6,9 @@ printf "Patching all ASDs in Bookinfo. Setting spec.scaleRule.enabled: false\n"
 for asd in $ASDs; do
     kubectl patch -n bookinfo $asd --type=merge --patch '{"spec":{"scaleRule":{"enabled":false}}}'
 done
+
+echo ""
+echo "############################################"
+echo "# TSM Autoscaling is disabled for Bookinfo #"
+echo "############################################"
+echo ""
